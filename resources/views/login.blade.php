@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.118.2">
-    <title>Signin Template · Bootstrap v5.3</title>
+    <title>{{ $title }}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
 
@@ -156,7 +156,7 @@
 <main class="form-signin w-100 m-auto">
   <form action="/login" method="POST">
     @csrf
-    <img class="mb-4" src="assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+    <img class="mb-4 d-block mx-auto" src="assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">Silahkan login</h1>
 
     <div class="form-floating">
