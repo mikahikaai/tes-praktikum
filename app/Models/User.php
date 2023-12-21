@@ -35,18 +35,4 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-
-    // function isAdmin()
-    // {
-    //     return $this->roles()
-    //         ->where('role', 'admin')
-    //         ->exists();
-    // }
-
-    // function isOwner()
-    // {
-    //     return $this->roles()
-    //         ->where('role', 'owner')
-    //         ->exists();
-    // }
 }

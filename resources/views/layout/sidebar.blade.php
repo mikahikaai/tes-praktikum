@@ -1,3 +1,6 @@
+@php
+    $user_role = auth()->user()->role;
+@endphp
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <div class="sidebar" id="sidebar">
         <!-- Sidebar user panel (optional) -->
@@ -65,12 +68,14 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/user" class="nav-link {{ request()->is('user') ? 'active' : '' }}">
-                                <i class="fa fa-minus fa-beat-fade fa-xl nav-icon"></i>
-                                <p>Pengguna</p>
-                            </a>
-                        </li>
+                        @if ($user_role == 'admin')
+                            <li class="nav-item">
+                                <a href="/user" class="nav-link {{ request()->is('user') ? 'active' : '' }}">
+                                    <i class="fa fa-minus fa-beat-fade fa-xl nav-icon"></i>
+                                    <p>Pengguna</p>
+                                </a>
+                            </li>
+                        @endif
                         <li class="nav-item">
                             <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
                                 <i class="fa fa-minus fa-beat-fade fa-xl nav-icon"></i>
@@ -150,65 +155,67 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tree"></i>
-                        <p>
-                            Menu 5
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="pages/UI/general.html" class="nav-link">
-                                <i class="fa fa-minus fa-beat-fade fa-xl nav-icon"></i>
-                                <p>Submenu 1</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/UI/icons.html" class="nav-link">
-                                <i class="fa fa-minus fa-beat-fade fa-xl nav-icon"></i>
-                                <p>Submenu 2</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/UI/buttons.html" class="nav-link">
-                                <i class="fa fa-minus fa-beat-fade fa-xl nav-icon"></i>
-                                <p>Submenu 3</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/UI/sliders.html" class="nav-link">
-                                <i class="fa fa-minus fa-beat-fade fa-xl nav-icon"></i>
-                                <p>Submenu 4</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/UI/modals.html" class="nav-link">
-                                <i class="fa fa-minus fa-beat-fade fa-xl nav-icon"></i>
-                                <p>Submenu 5</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/UI/navbar.html" class="nav-link">
-                                <i class="fa fa-minus fa-beat-fade fa-xl nav-icon"></i>
-                                <p>Submenu 6</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/UI/timeline.html" class="nav-link">
-                                <i class="fa fa-minus fa-beat-fade fa-xl nav-icon"></i>
-                                <p>Submenu 7</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/UI/ribbons.html" class="nav-link">
-                                <i class="fa fa-minus fa-beat-fade fa-xl nav-icon"></i>
-                                <p>Submenu 8</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                @if (auth()->user()->role != 'admin')
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-tree"></i>
+                            <p>
+                                Menu 5
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="pages/UI/general.html" class="nav-link">
+                                    <i class="fa fa-minus fa-beat-fade fa-xl nav-icon"></i>
+                                    <p>Submenu 1</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/UI/icons.html" class="nav-link">
+                                    <i class="fa fa-minus fa-beat-fade fa-xl nav-icon"></i>
+                                    <p>Submenu 2</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/UI/buttons.html" class="nav-link">
+                                    <i class="fa fa-minus fa-beat-fade fa-xl nav-icon"></i>
+                                    <p>Submenu 3</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/UI/sliders.html" class="nav-link">
+                                    <i class="fa fa-minus fa-beat-fade fa-xl nav-icon"></i>
+                                    <p>Submenu 4</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/UI/modals.html" class="nav-link">
+                                    <i class="fa fa-minus fa-beat-fade fa-xl nav-icon"></i>
+                                    <p>Submenu 5</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/UI/navbar.html" class="nav-link">
+                                    <i class="fa fa-minus fa-beat-fade fa-xl nav-icon"></i>
+                                    <p>Submenu 6</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/UI/timeline.html" class="nav-link">
+                                    <i class="fa fa-minus fa-beat-fade fa-xl nav-icon"></i>
+                                    <p>Submenu 7</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/UI/ribbons.html" class="nav-link">
+                                    <i class="fa fa-minus fa-beat-fade fa-xl nav-icon"></i>
+                                    <p>Submenu 8</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
