@@ -47,7 +47,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="/home" class="nav-link {{ request()->is('home') ? 'active' : '' }}">
+                    <a href="/admin" class="nav-link {{ request()->is('home') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Home

@@ -15,12 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', [LoginController::class, 'index']);
-Route::post('/login', [LoginController::class, 'login']);
+Route::get('/login', [LoginController::class, 'index'])
+    ->middleware('guest')
+    ->name('login');
+Route::post('/login', [LoginController::class, 'login'])->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/home', function(){
-    return view('home');
+Route::middleware('auth')->group(function () {
+    Route::get('/admin', [LoginController::class, 'admin'])->middleware('userakses:admin');
+    Route::get('/pelanggan', [LoginController::class, 'pelanggan'])->middleware('userakses:pelanggan');
+    Route::get('/owner', [LoginController::class, 'owner'])->middleware('userakses:owner');
+    Route::get('/usercheck', [LoginController::class, 'usercheck']);
+    Route::resource('/user', UserController::class);
 });
-
-Route::resource('/user', UserController::class);
