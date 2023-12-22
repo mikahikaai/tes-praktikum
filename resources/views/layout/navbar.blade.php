@@ -28,9 +28,9 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li>
-                        <form action="/logout" method="POST">
+                        <form action="/logout" method="POST" id="logoutform">
                             @csrf
-                            <button class="dropdown-item" href="/logout">Logout</button>
+                            <button type="submit" id="logout" class="dropdown-item">Logout</button>
                         </form>
                     </li>
                 </ul>

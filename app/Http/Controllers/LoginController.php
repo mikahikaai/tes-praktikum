@@ -12,9 +12,7 @@ class LoginController extends Controller
      */
     function index()
     {
-        return view('login', [
-            'title' => 'Halaman Login'
-        ]);
+        return view('login');
     }
 
     /**
@@ -65,6 +63,11 @@ class LoginController extends Controller
         } elseif (Auth::user()->role == 'pelanggan') {
             return redirect('pelanggan');
         }
+    }
+
+    function redirect()
+    {
+        return redirect('login');
     }
 
     function logout(Request $request)

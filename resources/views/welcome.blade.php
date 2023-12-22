@@ -14,16 +14,17 @@
     <div class="wrapper">
         @include('layout.navbar')
         @include('layout.sidebar')
-
+        
         <div class="content-wrapper">
             <div class="content pt-3">
                 @yield('CONTENT')
             </div>
         </div>
-
+        
         @include('layout.footer')
     </div>
     @include('layout.script')
+    @include('sweetalert::alert')
 </body>
 
 </html>

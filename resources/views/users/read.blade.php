@@ -29,7 +29,7 @@
                                 <a href="user/{{ $u->id }}/edit" class="btn btn-sm btn-primary">Ubah</a>
                                 @csrf
                                 @method('delete')
-                                <button class="btn btn-sm btn-danger">Hapus</button>
+                                <button class="btn btn-sm btn-danger" data-confirm-delete="true">Hapus</button>
                             </form>
                         </td>
                     </tr>

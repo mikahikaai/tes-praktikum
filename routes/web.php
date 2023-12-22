@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [LoginController::class, 'redirect'])->middleware('guest');
+
 Route::get('/login', [LoginController::class, 'index'])
     ->middleware('guest')
     ->name('login');
