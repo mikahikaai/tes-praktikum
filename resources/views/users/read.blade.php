@@ -24,12 +24,12 @@
                         <td>{{ $u->email }}</td>
                         <td>{{ $u->role }}</td>
                         <td>
-                            <form action="user/{{ $u->id }}" method="post">
+                            <form action="user/{{ $u->id }}" method="post" id="user-delete-form">
                                 <a href="user/{{ $u->id }}" class="btn btn-sm btn-info">Lihat</a>
                                 <a href="user/{{ $u->id }}/edit" class="btn btn-sm btn-primary">Ubah</a>
                                 @csrf
                                 @method('delete')
-                                <button class="btn btn-sm btn-danger" data-confirm-delete="true">Hapus</button>
+                                <button class="btn btn-sm btn-danger" data-confirm-delete="true" id="user-delete">Hapus</button>
                             </form>
                         </td>
                     </tr>

@@ -24,7 +24,6 @@
         @include('layout.footer')
     </div>
     @include('layout.script')
-    @include('sweetalert::alert')
 </body>
 
 </html>

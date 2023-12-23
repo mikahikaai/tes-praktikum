@@ -22,4 +22,41 @@
             }
         });
     })
+
+    $("#user-delete").on("click", function(e) {
+        e.preventDefault();
+        Swal.fire({
+            title: "Apakah anda ingin menghapus data ini?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            cancelButtonText: "Tidak",
+            confirmButtonText: "Ya"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $('#user-delete-form').submit() // this submits the form 
+            }
+        });
+    })
+
+    // console.log($('#login_sukses').length)
+    if ($('#login_sukses').length) {
+        var text = "{{ session('login_sukses') }}"
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        });
+        Toast.fire({
+            icon: "success",
+            title: text 
+        });
+    }
 </script>

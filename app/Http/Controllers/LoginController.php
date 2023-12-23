@@ -57,7 +57,7 @@ class LoginController extends Controller
     function usercheck()
     {
         if (Auth::user()->role == 'admin') {
-            return redirect('admin');
+            return redirect('admin')->with('login_sukses','Login berhasil!');
         } elseif (Auth::user()->role == 'owner') {
             return redirect('owner');
         } elseif (Auth::user()->role == 'pelanggan') {

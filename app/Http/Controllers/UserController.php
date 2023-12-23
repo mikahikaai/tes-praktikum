@@ -63,5 +63,6 @@ class UserController extends Controller
     {
         // example:
         $user->delete();
+        return redirect('user');
     }
 }

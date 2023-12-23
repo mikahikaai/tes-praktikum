@@ -3,5 +3,8 @@
 @section('JUDUL', 'Home')
 
 @section('CONTENT')
-    <h3>Selamat Datang {{ Auth::user()->name }}</h3>
+    @if (session('login_sukses'))
+        <div id="login_sukses"></div>
+    @endif
+
 @endsection
